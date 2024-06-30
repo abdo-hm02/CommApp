@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 
 
 import authRoutes from "./routes/AuthRoutes.js";
+import messageRoutes from "./routes/MessageRoutes.js";
 import connectToMongoDB from "./db/connectToMongoDb.js";
 
 
@@ -13,6 +14,7 @@ dotenv.config();
 
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes)
 
 // app.get('/', (req, res) => {
 //   res.send('Hello, world!');
