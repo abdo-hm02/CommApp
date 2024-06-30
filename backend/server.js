@@ -3,11 +3,12 @@ import dotenv from "dotenv";
 
 
 import authRoutes from "./routes/AuthRoutes.js";
+import connectToMongoDB from "./db/connectToMongoDb.js";
 
 
 const app = express();
 dotenv.config();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use("/api/auth", authRoutes);
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
-app.listen(port, () => {
-    console.log(`Server running on port : ${port}`);
+app.listen(PORT, () => {
+    connectToMongoDB(),
+    console.log(`Server running on port : ${PORT}`);
   });
